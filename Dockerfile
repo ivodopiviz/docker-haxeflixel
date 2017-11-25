@@ -7,6 +7,7 @@ RUN apt-get update && apt-get install -y \
     wget \
     xvfb \
     curl \
+    git \
     haxe
 
 # Install Haxelib
@@ -26,3 +27,4 @@ RUN haxelib install compiletime
 
 # Install native libraries
 RUN haxelib install openfl-webm
+RUN haxelib git steamwrap https://github.com/larsiusprime/SteamWrap.git
