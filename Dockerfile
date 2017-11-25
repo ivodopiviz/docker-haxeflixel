@@ -1,16 +1,22 @@
-FROM debian:jessie
+FROM debian:buster
 
 # Install dependencies
 RUN apt-get update && apt-get install -y \
-    libgl1-mesa-swx11 \
+    libgl1-mesa-glx \
     sudo \
     wget \
-    xvfb
+    xvfb \
+    curl \
+    haxe
 
-# Install Haxe
-RUN wget -qO /tmp/haxe.tar.gz http://www.openfl.org/builds/haxe/haxe-3.2.1-linux-installer.tar.gz && \
-    tar xzf /tmp/haxe.tar.gz -C /tmp && \
-    /tmp/install-haxe.sh -y
+# Install Haxelib
+RUN mkdir ~/haxelib && haxelib setup ~/haxelib
 
-# Install HaxeFlixel
+# Install HaxeFlixel and related add-ons
 RUN haxelib install flixel
+RUN haxelib install flixel-addons
+RUN haxelib install flixel-ui 
+
+# Install game libraries
+RUN haxelib install firetongue 
+RUN haxelib install compiletime
