@@ -12,6 +12,9 @@ RUN apt-get update && apt-get install -y \
 # Install Haxelib
 RUN mkdir ~/haxelib && haxelib setup ~/haxelib
 
+# Install hxcpp
+RUN haxelib install hxcpp
+
 # Install HaxeFlixel and related add-ons
 RUN haxelib install flixel
 RUN haxelib install flixel-addons
@@ -20,3 +23,6 @@ RUN haxelib install flixel-ui
 # Install game libraries
 RUN haxelib install firetongue 
 RUN haxelib install compiletime
+
+# Install native libraries
+RUN haxelib install openfl-webm
