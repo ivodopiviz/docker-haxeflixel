@@ -7,6 +7,7 @@ RUN apt-get update && apt-get install -y \
     wget \
     xvfb \
     curl \
+    git \
     haxe
 
 # Install Haxelib
@@ -21,5 +22,10 @@ RUN haxelib install flixel-ui
 RUN haxelib install firetongue 
 RUN haxelib install compiletime
 
-# Set hxcpp to a version we can actually use
-RUN haxelib install hxcpp 3.4.64
+# Install native libraries
+RUN haxelib install openfl-webm
+RUN haxelib git steamwrap https://github.com/larsiusprime/SteamWrap.git
+RUN haxelib git crashdumper http://github.com/larsiusprime/crashdumper
+
+# Install hxcpp
+RUN yes | haxelib set hxcpp 3.4.64
