@@ -20,3 +20,6 @@ RUN haxelib install flixel-ui
 # Install game libraries
 RUN haxelib install firetongue 
 RUN haxelib install compiletime
+
+# Set hxcpp to a version we can actually use
+RUN haxelib install hxcpp 3.4.64
