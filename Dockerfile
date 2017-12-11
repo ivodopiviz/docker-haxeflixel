@@ -34,7 +34,7 @@ RUN haxelib install firetongue
 RUN haxelib install compiletime
 
 # Install native libraries
-RUN haxelib install openfl-webm
+RUN haxelib git openfl-webm https://github.com/23rd/haxe-openfl-webm.git
 RUN haxelib git steamwrap https://github.com/larsiusprime/SteamWrap.git
 RUN haxelib git crashdumper http://github.com/larsiusprime/crashdumper
 
