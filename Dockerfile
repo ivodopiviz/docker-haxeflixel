@@ -35,6 +35,8 @@ RUN haxelib install compiletime
 
 # Install native libraries
 RUN haxelib git openfl-webm https://github.com/23rd/haxe-openfl-webm.git
+RUN sh ~/haxelib/openfl-webm/build_linux.sh
+
 RUN haxelib git steamwrap https://github.com/larsiusprime/SteamWrap.git
 RUN haxelib git crashdumper http://github.com/larsiusprime/crashdumper
 
